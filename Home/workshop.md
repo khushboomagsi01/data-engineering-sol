@@ -17,7 +17,7 @@ FROM taxi_data.rides;
 |---|---|
 | 2009-06-01 | 2009-07-01 |
 
-**Answer: 2009-06-01 to 2009-07-01** ✅
+**Answer: 2009-06-01 to 2009-07-01** 
 
 
 
@@ -45,7 +45,7 @@ ORDER BY cnt DESC;
 | No Charge | 1 | 0.01% |
 | Dispute | 1 | 0.01% |
 
-**Answer: 26.66%** ✅
+**Answer: 26.66%** 
 
 ## Question 3: What is the total amount of money generated in tips?
 
@@ -62,4 +62,4 @@ FROM taxi_data.rides;
 |---|
 | $6,063.41 |
 
-**Answer: $6,063.41** ✅
+**Answer: $6,063.41** 
