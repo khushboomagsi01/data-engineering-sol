@@ -1,0 +1,6 @@
+skin_lesion_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../warehouse/skin_lesions.duckdb'

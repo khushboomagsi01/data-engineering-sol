@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: main
+    tables:
+      - name: raw_skin_lesions
+        description: "Raw HAM10000 skin lesion metadata loaded from parquet"
+
+models:
+  - name: stg_lesions
+    description: "Cleaned and standardized skin lesion records"
+    columns:
+      - name: lesion_id
+        description: "Unique lesion identifier"
+      - name: image_id
+        description: "Unique image identifier"
+        tests:
+          - not_null
+          - unique
+      - name: diagnosis_code
+        description: "Abbreviated diagnosis (akiec, bcc, bkl, df, mel, nv, vasc)"
+        tests:
+          - not_null
+      - name: diagnosis_name
+        description: "Full diagnosis name"
+      - name: diagnosis_method
+        description: "How the diagnosis was confirmed (histo, follow_up, consensus, confocal)"
+      - name: patient_age
+        description: "Patient age in years"
+      - name: age_group
+        description: "Age bucket (0-20, 21-40, 41-60, 61-80, 81-100)"
+      - name: patient_sex
+        description: "Patient sex (male, female, unknown)"
+      - name: body_location
+        description: "Body site where the lesion was found"

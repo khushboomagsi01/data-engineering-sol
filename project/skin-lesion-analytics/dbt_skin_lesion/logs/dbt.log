@@ -1,0 +1,1123 @@
+[0m15:13:21.532268 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10983c1d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ae01d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ae0a50>]}
+
+
+============================== 15:13:21.541901 | a17c3ce5-0cbf-410c-b438-3544d4d25ebc ==============================
+[0m15:13:21.541901 [info ] [MainThread]: Running with dbt=1.11.7
+[0m15:13:21.543468 [debug] [MainThread]: running dbt with arguments {'write_json': 'True', 'introspect': 'True', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'partial_parse': 'True', 'debug': 'False', 'profiles_dir': '.', 'target_path': 'None', 'log_format': 'default', 'printer_width': '80', 'empty': 'False', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'warn_error': 'None', 'log_cache_events': 'False', 'static_parser': 'True', 'use_colors': 'True', 'invocation_command': 'dbt run --profiles-dir .', 'version_check': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'log_path': '/Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/logs'}
+[0m15:13:22.183494 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ce7b10>]}
+[0m15:13:22.265467 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106e239d0>]}
+[0m15:13:22.267552 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m15:13:22.419654 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m15:13:22.420352 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m15:13:22.420636 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109f09190>]}
+[0m15:13:23.628622 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a1f7910>]}
+[0m15:13:23.744735 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/manifest.json
+[0m15:13:23.746458 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/semantic_manifest.json
+[0m15:13:23.770973 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a5fac90>]}
+[0m15:13:23.771665 [info ] [MainThread]: Found 4 models, 3 data tests, 1 source, 474 macros
+[0m15:13:23.772110 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a387210>]}
+[0m15:13:23.773387 [info ] [MainThread]: 
+[0m15:13:23.773646 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m15:13:23.773810 [info ] [MainThread]: 
+[0m15:13:23.774142 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m15:13:23.777486 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_skin_lesions'
+[0m15:13:23.939040 [debug] [ThreadPool]: Using duckdb connection "list_skin_lesions"
+[0m15:13:23.939378 [debug] [ThreadPool]: On list_skin_lesions: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "connection_name": "list_skin_lesions"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"skin_lesions"'
+    
+  
+  
+[0m15:13:23.939568 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:13:23.977555 [debug] [ThreadPool]: SQL status: OK in 0.038 seconds
+[0m15:13:23.978698 [debug] [ThreadPool]: On list_skin_lesions: Close
+[0m15:13:23.979121 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_skin_lesions, now create_skin_lesions_main)
+[0m15:13:23.979396 [debug] [ThreadPool]: Creating schema "database: "skin_lesions"
+schema: "main"
+"
+[0m15:13:23.983658 [debug] [ThreadPool]: Using duckdb connection "create_skin_lesions_main"
+[0m15:13:23.983903 [debug] [ThreadPool]: On create_skin_lesions_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "connection_name": "create_skin_lesions_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='skin_lesions'
+        and type='sqlite'
+    
+  
+[0m15:13:23.984068 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m15:13:23.984862 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m15:13:23.986972 [debug] [ThreadPool]: Using duckdb connection "create_skin_lesions_main"
+[0m15:13:23.987905 [debug] [ThreadPool]: On create_skin_lesions_main: BEGIN
+[0m15:13:23.988467 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m15:13:23.988734 [debug] [ThreadPool]: Using duckdb connection "create_skin_lesions_main"
+[0m15:13:23.988898 [debug] [ThreadPool]: On create_skin_lesions_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "connection_name": "create_skin_lesions_main"} */
+
+    
+    
+        create schema if not exists "skin_lesions"."main"
+    
+[0m15:13:23.989307 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m15:13:23.989853 [debug] [ThreadPool]: On create_skin_lesions_main: COMMIT
+[0m15:13:23.990035 [debug] [ThreadPool]: Using duckdb connection "create_skin_lesions_main"
+[0m15:13:23.990183 [debug] [ThreadPool]: On create_skin_lesions_main: COMMIT
+[0m15:13:23.990411 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m15:13:23.990561 [debug] [ThreadPool]: On create_skin_lesions_main: Close
+[0m15:13:23.991268 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_skin_lesions_main, now list_skin_lesions_main)
+[0m15:13:23.994630 [debug] [ThreadPool]: Using duckdb connection "list_skin_lesions_main"
+[0m15:13:23.994808 [debug] [ThreadPool]: On list_skin_lesions_main: BEGIN
+[0m15:13:23.994997 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m15:13:23.995274 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m15:13:23.995425 [debug] [ThreadPool]: Using duckdb connection "list_skin_lesions_main"
+[0m15:13:23.995610 [debug] [ThreadPool]: On list_skin_lesions_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "connection_name": "list_skin_lesions_main"} */
+select
+      'skin_lesions' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'skin_lesions'
+  
+[0m15:13:24.013300 [debug] [ThreadPool]: SQL status: OK in 0.017 seconds
+[0m15:13:24.014507 [debug] [ThreadPool]: On list_skin_lesions_main: ROLLBACK
+[0m15:13:24.015593 [debug] [ThreadPool]: Failed to rollback 'list_skin_lesions_main'
+[0m15:13:24.015804 [debug] [ThreadPool]: On list_skin_lesions_main: Close
+[0m15:13:24.016297 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a435fd0>]}
+[0m15:13:24.016625 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:13:24.016796 [debug] [MainThread]: On master: BEGIN
+[0m15:13:24.017070 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m15:13:24.017691 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:13:24.017883 [debug] [MainThread]: On master: COMMIT
+[0m15:13:24.018087 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:13:24.018251 [debug] [MainThread]: On master: COMMIT
+[0m15:13:24.018528 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:13:24.018683 [debug] [MainThread]: On master: Close
+[0m15:13:24.022953 [debug] [Thread-1 (]: Began running node model.skin_lesion_analytics.stg_lesions
+[0m15:13:24.023327 [info ] [Thread-1 (]: 1 of 4 START sql view model main.stg_lesions ................................... [RUN]
+[0m15:13:24.023618 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_skin_lesions_main, now model.skin_lesion_analytics.stg_lesions)
+[0m15:13:24.023813 [debug] [Thread-1 (]: Began compiling node model.skin_lesion_analytics.stg_lesions
+[0m15:13:24.028531 [debug] [Thread-1 (]: Writing injected SQL for node "model.skin_lesion_analytics.stg_lesions"
+[0m15:13:24.029218 [debug] [Thread-1 (]: Began executing node model.skin_lesion_analytics.stg_lesions
+[0m15:13:24.067674 [debug] [Thread-1 (]: Writing runtime sql for node "model.skin_lesion_analytics.stg_lesions"
+[0m15:13:24.076169 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:13:24.076491 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: BEGIN
+[0m15:13:24.076772 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:13:24.077246 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.077452 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:13:24.077653 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.stg_lesions"} */
+
+  
+  create view "skin_lesions"."main"."stg_lesions__dbt_tmp" as (
+    with source as (
+    select * from "skin_lesions"."main"."raw_skin_lesions"
+),
+
+cleaned as (
+    select
+        lesion_id,
+        image_id,
+        dx              as diagnosis_code,
+        diagnosis_name,
+        dx_type         as diagnosis_method,
+        cast(age as integer) as patient_age,
+        age_group,
+        sex             as patient_sex,
+        localization    as body_location
+    from source
+)
+
+select * from cleaned
+  );
+
+[0m15:13:24.078448 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.084120 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:13:24.084545 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.stg_lesions"} */
+alter view "skin_lesions"."main"."stg_lesions__dbt_tmp" rename to "stg_lesions"
+[0m15:13:24.086672 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m15:13:24.093282 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: COMMIT
+[0m15:13:24.093562 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:13:24.093750 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: COMMIT
+[0m15:13:24.094793 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:13:24.097944 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:13:24.098157 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.stg_lesions"} */
+
+      drop view if exists "skin_lesions"."main"."stg_lesions__dbt_backup" cascade
+    
+[0m15:13:24.098679 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.100227 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: Close
+[0m15:13:24.101446 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a933dd0>]}
+[0m15:13:24.101821 [info ] [Thread-1 (]: 1 of 4 OK created sql view model main.stg_lesions .............................. [[32mOK[0m in 0.08s]
+[0m15:13:24.102164 [debug] [Thread-1 (]: Finished running node model.skin_lesion_analytics.stg_lesions
+[0m15:13:24.103748 [debug] [Thread-1 (]: Began running node model.skin_lesion_analytics.body_location_analysis
+[0m15:13:24.104192 [info ] [Thread-1 (]: 2 of 4 START sql view model main.body_location_analysis ........................ [RUN]
+[0m15:13:24.104464 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.skin_lesion_analytics.stg_lesions, now model.skin_lesion_analytics.body_location_analysis)
+[0m15:13:24.104654 [debug] [Thread-1 (]: Began compiling node model.skin_lesion_analytics.body_location_analysis
+[0m15:13:24.108066 [debug] [Thread-1 (]: Writing injected SQL for node "model.skin_lesion_analytics.body_location_analysis"
+[0m15:13:24.108784 [debug] [Thread-1 (]: Began executing node model.skin_lesion_analytics.body_location_analysis
+[0m15:13:24.111086 [debug] [Thread-1 (]: Writing runtime sql for node "model.skin_lesion_analytics.body_location_analysis"
+[0m15:13:24.111665 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:13:24.112192 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: BEGIN
+[0m15:13:24.112389 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:13:24.112823 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.113256 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:13:24.113480 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.body_location_analysis"} */
+
+  
+  create view "skin_lesions"."main"."body_location_analysis__dbt_tmp" as (
+    with lesions as (
+    select * from "skin_lesions"."main"."stg_lesions"
+)
+
+select
+    body_location,
+    diagnosis_code,
+    diagnosis_name,
+    count(*)                   as case_count,
+    round(avg(patient_age), 1) as avg_age
+from lesions
+group by body_location, diagnosis_code, diagnosis_name
+order by case_count desc
+  );
+
+[0m15:13:24.115203 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:13:24.117420 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:13:24.117636 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.body_location_analysis"} */
+alter view "skin_lesions"."main"."body_location_analysis__dbt_tmp" rename to "body_location_analysis"
+[0m15:13:24.118257 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.120610 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: COMMIT
+[0m15:13:24.122702 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:13:24.123294 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: COMMIT
+[0m15:13:24.124127 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:13:24.125741 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:13:24.125959 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.body_location_analysis"} */
+
+      drop view if exists "skin_lesions"."main"."body_location_analysis__dbt_backup" cascade
+    
+[0m15:13:24.126307 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.127111 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: Close
+[0m15:13:24.127463 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a974c90>]}
+[0m15:13:24.127873 [info ] [Thread-1 (]: 2 of 4 OK created sql view model main.body_location_analysis ................... [[32mOK[0m in 0.02s]
+[0m15:13:24.128533 [debug] [Thread-1 (]: Finished running node model.skin_lesion_analytics.body_location_analysis
+[0m15:13:24.128799 [debug] [Thread-1 (]: Began running node model.skin_lesion_analytics.demographics_analysis
+[0m15:13:24.129092 [info ] [Thread-1 (]: 3 of 4 START sql view model main.demographics_analysis ......................... [RUN]
+[0m15:13:24.129398 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.skin_lesion_analytics.body_location_analysis, now model.skin_lesion_analytics.demographics_analysis)
+[0m15:13:24.129645 [debug] [Thread-1 (]: Began compiling node model.skin_lesion_analytics.demographics_analysis
+[0m15:13:24.132177 [debug] [Thread-1 (]: Writing injected SQL for node "model.skin_lesion_analytics.demographics_analysis"
+[0m15:13:24.132763 [debug] [Thread-1 (]: Began executing node model.skin_lesion_analytics.demographics_analysis
+[0m15:13:24.135264 [debug] [Thread-1 (]: Writing runtime sql for node "model.skin_lesion_analytics.demographics_analysis"
+[0m15:13:24.136252 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:13:24.136817 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: BEGIN
+[0m15:13:24.138481 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:13:24.139983 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m15:13:24.140185 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:13:24.140369 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.demographics_analysis"} */
+
+  
+  create view "skin_lesions"."main"."demographics_analysis__dbt_tmp" as (
+    with lesions as (
+    select * from "skin_lesions"."main"."stg_lesions"
+)
+
+select
+    age_group,
+    diagnosis_code,
+    diagnosis_name,
+    patient_sex,
+    count(*) as case_count
+from lesions
+group by age_group, diagnosis_code, diagnosis_name, patient_sex
+order by age_group, diagnosis_code
+  );
+
+[0m15:13:24.141167 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:13:24.143042 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:13:24.143253 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.demographics_analysis"} */
+alter view "skin_lesions"."main"."demographics_analysis__dbt_tmp" rename to "demographics_analysis"
+[0m15:13:24.143614 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.144333 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: COMMIT
+[0m15:13:24.144515 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:13:24.144689 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: COMMIT
+[0m15:13:24.145224 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.147999 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:13:24.148207 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.demographics_analysis"} */
+
+      drop view if exists "skin_lesions"."main"."demographics_analysis__dbt_backup" cascade
+    
+[0m15:13:24.148531 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.149331 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: Close
+[0m15:13:24.149648 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10aaa6cd0>]}
+[0m15:13:24.150210 [info ] [Thread-1 (]: 3 of 4 OK created sql view model main.demographics_analysis .................... [[32mOK[0m in 0.02s]
+[0m15:13:24.150702 [debug] [Thread-1 (]: Finished running node model.skin_lesion_analytics.demographics_analysis
+[0m15:13:24.151063 [debug] [Thread-1 (]: Began running node model.skin_lesion_analytics.diagnosis_summary
+[0m15:13:24.151479 [info ] [Thread-1 (]: 4 of 4 START sql view model main.diagnosis_summary ............................. [RUN]
+[0m15:13:24.152854 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.skin_lesion_analytics.demographics_analysis, now model.skin_lesion_analytics.diagnosis_summary)
+[0m15:13:24.154463 [debug] [Thread-1 (]: Began compiling node model.skin_lesion_analytics.diagnosis_summary
+[0m15:13:24.225187 [debug] [Thread-1 (]: Writing injected SQL for node "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:13:24.225992 [debug] [Thread-1 (]: Began executing node model.skin_lesion_analytics.diagnosis_summary
+[0m15:13:24.229809 [debug] [Thread-1 (]: Writing runtime sql for node "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:13:24.230308 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:13:24.230507 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: BEGIN
+[0m15:13:24.230710 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:13:24.231138 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.231343 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:13:24.231651 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.diagnosis_summary"} */
+
+  
+  create view "skin_lesions"."main"."diagnosis_summary__dbt_tmp" as (
+    with lesions as (
+    select * from "skin_lesions"."main"."stg_lesions"
+)
+
+select
+    diagnosis_code,
+    diagnosis_name,
+    count(*)                                                    as total_cases,
+    round(count(*) * 100.0 / sum(count(*)) over (), 2)         as pct_of_total,
+    round(avg(patient_age), 1)                                  as avg_age,
+    count(distinct lesion_id)                                   as unique_lesions
+from lesions
+group by diagnosis_code, diagnosis_name
+order by total_cases desc
+  );
+
+[0m15:13:24.236442 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m15:13:24.241504 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:13:24.242068 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.diagnosis_summary"} */
+alter view "skin_lesions"."main"."diagnosis_summary__dbt_tmp" rename to "diagnosis_summary"
+[0m15:13:24.243613 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:13:24.245619 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: COMMIT
+[0m15:13:24.246383 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:13:24.246734 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: COMMIT
+[0m15:13:24.247445 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.249176 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:13:24.249513 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.diagnosis_summary"} */
+
+      drop view if exists "skin_lesions"."main"."diagnosis_summary__dbt_backup" cascade
+    
+[0m15:13:24.250011 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:13:24.250935 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: Close
+[0m15:13:24.254716 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a17c3ce5-0cbf-410c-b438-3544d4d25ebc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10aaba910>]}
+[0m15:13:24.255265 [info ] [Thread-1 (]: 4 of 4 OK created sql view model main.diagnosis_summary ........................ [[32mOK[0m in 0.10s]
+[0m15:13:24.255935 [debug] [Thread-1 (]: Finished running node model.skin_lesion_analytics.diagnosis_summary
+[0m15:13:24.257349 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:13:24.257564 [debug] [MainThread]: On master: BEGIN
+[0m15:13:24.257735 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m15:13:24.258128 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:13:24.258291 [debug] [MainThread]: On master: COMMIT
+[0m15:13:24.258463 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:13:24.258607 [debug] [MainThread]: On master: COMMIT
+[0m15:13:24.258857 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:13:24.259014 [debug] [MainThread]: On master: Close
+[0m15:13:24.259236 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m15:13:24.259384 [debug] [MainThread]: Connection 'model.skin_lesion_analytics.diagnosis_summary' was properly closed.
+[0m15:13:24.259594 [info ] [MainThread]: 
+[0m15:13:24.259825 [info ] [MainThread]: Finished running 4 view models in 0 hours 0 minutes and 0.49 seconds (0.49s).
+[0m15:13:24.260521 [debug] [MainThread]: Command end result
+[0m15:13:24.281517 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/manifest.json
+[0m15:13:24.282406 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/semantic_manifest.json
+[0m15:13:24.288047 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/run_results.json
+[0m15:13:24.288370 [info ] [MainThread]: 
+[0m15:13:24.288710 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m15:13:24.289060 [info ] [MainThread]: 
+[0m15:13:24.289479 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m15:13:24.326559 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.8946373, "process_in_blocks": "0", "process_kernel_time": 0.620332, "process_mem_max_rss": "157466624", "process_out_blocks": "0", "process_user_time": 2.596686}
+[0m15:13:24.327138 [debug] [MainThread]: Command `dbt run` succeeded at 15:13:24.327048 after 2.90 seconds
+[0m15:13:24.327595 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1007e2550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1007e2510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1088f9a50>]}
+[0m15:13:24.327853 [debug] [MainThread]: Flushing usage events
+[0m15:13:25.222978 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:14:50.436592 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d6f0510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d7b0510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d7b0d90>]}
+
+
+============================== 15:14:50.440389 | eb9e8cb6-8087-42a1-adab-15af309879b3 ==============================
+[0m15:14:50.440389 [info ] [MainThread]: Running with dbt=1.11.7
+[0m15:14:50.440808 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'log_cache_events': 'False', 'fail_fast': 'False', 'version_check': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt test --profiles-dir .', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'warn_error': 'None', 'quiet': 'False', 'use_experimental_parser': 'False', 'printer_width': '80', 'introspect': 'True', 'debug': 'False', 'partial_parse': 'True', 'empty': 'None', 'log_path': '/Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/logs', 'write_json': 'True', 'profiles_dir': '.', 'no_print': 'None'}
+[0m15:14:50.814429 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'eb9e8cb6-8087-42a1-adab-15af309879b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d7f8390>]}
+[0m15:14:50.857356 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'eb9e8cb6-8087-42a1-adab-15af309879b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10aad7dd0>]}
+[0m15:14:50.858823 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m15:14:50.927707 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m15:14:50.999921 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m15:14:51.000220 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m15:14:51.000392 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m15:14:51.026072 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'eb9e8cb6-8087-42a1-adab-15af309879b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dd11990>]}
+[0m15:14:51.080551 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/manifest.json
+[0m15:14:51.082217 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/semantic_manifest.json
+[0m15:14:51.107145 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'eb9e8cb6-8087-42a1-adab-15af309879b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10df67990>]}
+[0m15:14:51.107525 [info ] [MainThread]: Found 4 models, 3 data tests, 1 source, 474 macros
+[0m15:14:51.107726 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'eb9e8cb6-8087-42a1-adab-15af309879b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10de35a10>]}
+[0m15:14:51.108732 [info ] [MainThread]: 
+[0m15:14:51.108969 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m15:14:51.109179 [info ] [MainThread]: 
+[0m15:14:51.109492 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m15:14:51.112266 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_skin_lesions_main'
+[0m15:14:51.243574 [debug] [ThreadPool]: Using duckdb connection "list_skin_lesions_main"
+[0m15:14:51.243883 [debug] [ThreadPool]: On list_skin_lesions_main: BEGIN
+[0m15:14:51.244055 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:14:51.262580 [debug] [ThreadPool]: SQL status: OK in 0.018 seconds
+[0m15:14:51.262915 [debug] [ThreadPool]: Using duckdb connection "list_skin_lesions_main"
+[0m15:14:51.263106 [debug] [ThreadPool]: On list_skin_lesions_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "connection_name": "list_skin_lesions_main"} */
+select
+      'skin_lesions' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'skin_lesions'
+  
+[0m15:14:51.277619 [debug] [ThreadPool]: SQL status: OK in 0.014 seconds
+[0m15:14:51.278771 [debug] [ThreadPool]: On list_skin_lesions_main: ROLLBACK
+[0m15:14:51.279949 [debug] [ThreadPool]: Failed to rollback 'list_skin_lesions_main'
+[0m15:14:51.280188 [debug] [ThreadPool]: On list_skin_lesions_main: Close
+[0m15:14:51.281213 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'eb9e8cb6-8087-42a1-adab-15af309879b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10df89850>]}
+[0m15:14:51.281590 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:14:51.281878 [debug] [MainThread]: On master: BEGIN
+[0m15:14:51.282169 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m15:14:51.282542 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:14:51.282715 [debug] [MainThread]: On master: COMMIT
+[0m15:14:51.282880 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:14:51.283079 [debug] [MainThread]: On master: COMMIT
+[0m15:14:51.283362 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:14:51.283530 [debug] [MainThread]: On master: Close
+[0m15:14:51.285300 [debug] [Thread-1 (]: Began running node test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27
+[0m15:14:51.286889 [info ] [Thread-1 (]: 1 of 3 START test not_null_stg_lesions_diagnosis_code .......................... [RUN]
+[0m15:14:51.287998 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_skin_lesions_main, now test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27)
+[0m15:14:51.288244 [debug] [Thread-1 (]: Began compiling node test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27
+[0m15:14:51.298522 [debug] [Thread-1 (]: Writing injected SQL for node "test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27"
+[0m15:14:51.300942 [debug] [Thread-1 (]: Began executing node test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27
+[0m15:14:51.315104 [debug] [Thread-1 (]: Writing runtime sql for node "test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27"
+[0m15:14:51.315798 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27"
+[0m15:14:51.316103 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27: BEGIN
+[0m15:14:51.316301 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:14:51.316757 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:14:51.316969 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27"
+[0m15:14:51.317178 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select diagnosis_code
+from "skin_lesions"."main"."stg_lesions"
+where diagnosis_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m15:14:51.320302 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m15:14:51.326755 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27: ROLLBACK
+[0m15:14:51.327347 [debug] [Thread-1 (]: Failed to rollback 'test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27'
+[0m15:14:51.327742 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27: Close
+[0m15:14:51.328155 [info ] [Thread-1 (]: 1 of 3 PASS not_null_stg_lesions_diagnosis_code ................................ [[32mPASS[0m in 0.04s]
+[0m15:14:51.328601 [debug] [Thread-1 (]: Finished running node test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27
+[0m15:14:51.328823 [debug] [Thread-1 (]: Began running node test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1
+[0m15:14:51.329049 [info ] [Thread-1 (]: 2 of 3 START test not_null_stg_lesions_image_id ................................ [RUN]
+[0m15:14:51.329304 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27, now test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1)
+[0m15:14:51.329483 [debug] [Thread-1 (]: Began compiling node test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1
+[0m15:14:51.331895 [debug] [Thread-1 (]: Writing injected SQL for node "test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1"
+[0m15:14:51.332301 [debug] [Thread-1 (]: Began executing node test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1
+[0m15:14:51.333703 [debug] [Thread-1 (]: Writing runtime sql for node "test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1"
+[0m15:14:51.334166 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1"
+[0m15:14:51.334353 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1: BEGIN
+[0m15:14:51.335405 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:14:51.336074 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:14:51.336449 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1"
+[0m15:14:51.336709 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select image_id
+from "skin_lesions"."main"."stg_lesions"
+where image_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m15:14:51.337767 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:14:51.338888 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1: ROLLBACK
+[0m15:14:51.339264 [debug] [Thread-1 (]: Failed to rollback 'test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1'
+[0m15:14:51.339435 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1: Close
+[0m15:14:51.339743 [info ] [Thread-1 (]: 2 of 3 PASS not_null_stg_lesions_image_id ...................................... [[32mPASS[0m in 0.01s]
+[0m15:14:51.340012 [debug] [Thread-1 (]: Finished running node test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1
+[0m15:14:51.340204 [debug] [Thread-1 (]: Began running node test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009
+[0m15:14:51.340410 [info ] [Thread-1 (]: 3 of 3 START test unique_stg_lesions_image_id .................................. [RUN]
+[0m15:14:51.340643 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1, now test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009)
+[0m15:14:51.340839 [debug] [Thread-1 (]: Began compiling node test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009
+[0m15:14:51.344372 [debug] [Thread-1 (]: Writing injected SQL for node "test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009"
+[0m15:14:51.344732 [debug] [Thread-1 (]: Began executing node test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009
+[0m15:14:51.347191 [debug] [Thread-1 (]: Writing runtime sql for node "test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009"
+[0m15:14:51.347591 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009"
+[0m15:14:51.347774 [debug] [Thread-1 (]: On test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009: BEGIN
+[0m15:14:51.347945 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:14:51.348310 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:14:51.348474 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009"
+[0m15:14:51.348648 [debug] [Thread-1 (]: On test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    image_id as unique_field,
+    count(*) as n_records
+
+from "skin_lesions"."main"."stg_lesions"
+where image_id is not null
+group by image_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m15:14:51.356221 [debug] [Thread-1 (]: SQL status: OK in 0.007 seconds
+[0m15:14:51.357705 [debug] [Thread-1 (]: On test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009: ROLLBACK
+[0m15:14:51.358116 [debug] [Thread-1 (]: Failed to rollback 'test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009'
+[0m15:14:51.358340 [debug] [Thread-1 (]: On test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009: Close
+[0m15:14:51.358734 [info ] [Thread-1 (]: 3 of 3 PASS unique_stg_lesions_image_id ........................................ [[32mPASS[0m in 0.02s]
+[0m15:14:51.359189 [debug] [Thread-1 (]: Finished running node test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009
+[0m15:14:51.360042 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:14:51.360515 [debug] [MainThread]: On master: BEGIN
+[0m15:14:51.360681 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m15:14:51.361029 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:14:51.361199 [debug] [MainThread]: On master: COMMIT
+[0m15:14:51.361354 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:14:51.361495 [debug] [MainThread]: On master: COMMIT
+[0m15:14:51.361744 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:14:51.361928 [debug] [MainThread]: On master: Close
+[0m15:14:51.362138 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m15:14:51.362282 [debug] [MainThread]: Connection 'test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009' was properly closed.
+[0m15:14:51.362467 [info ] [MainThread]: 
+[0m15:14:51.362655 [info ] [MainThread]: Finished running 3 data tests in 0 hours 0 minutes and 0.25 seconds (0.25s).
+[0m15:14:51.364047 [debug] [MainThread]: Command end result
+[0m15:14:51.384328 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/manifest.json
+[0m15:14:51.389552 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/semantic_manifest.json
+[0m15:14:51.394096 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/run_results.json
+[0m15:14:51.394324 [info ] [MainThread]: 
+[0m15:14:51.394581 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m15:14:51.394782 [info ] [MainThread]: 
+[0m15:14:51.394966 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m15:14:51.397333 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 1.017902, "process_in_blocks": "0", "process_kernel_time": 0.379392, "process_mem_max_rss": "157270016", "process_out_blocks": "0", "process_user_time": 1.453362}
+[0m15:14:51.397596 [debug] [MainThread]: Command `dbt test` succeeded at 15:14:51.397550 after 1.02 seconds
+[0m15:14:51.397834 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109342310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1093de450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1093dec50>]}
+[0m15:14:51.398071 [debug] [MainThread]: Flushing usage events
+[0m15:14:51.940882 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:37:34.131828 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a0eea50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a183bd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a183f90>]}
+
+
+============================== 15:37:34.146660 | 3a44517e-c6a9-43bf-9adf-e82f91c74997 ==============================
+[0m15:37:34.146660 [info ] [MainThread]: Running with dbt=1.11.7
+[0m15:37:34.147699 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'log_cache_events': 'False', 'fail_fast': 'False', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'version_check': 'True', 'cache_selected_only': 'False', 'quiet': 'False', 'invocation_command': 'dbt run --profiles-dir .', 'log_path': '/Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/logs', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'write_json': 'True', 'printer_width': '80', 'profiles_dir': '.', 'indirect_selection': 'eager', 'no_print': 'None', 'target_path': 'None', 'empty': 'False', 'use_experimental_parser': 'False'}
+[0m15:37:34.563473 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3a44517e-c6a9-43bf-9adf-e82f91c74997', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a1827d0>]}
+[0m15:37:34.615354 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3a44517e-c6a9-43bf-9adf-e82f91c74997', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1075330d0>]}
+[0m15:37:34.617531 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m15:37:34.795327 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m15:37:35.002886 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m15:37:35.003302 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m15:37:35.003571 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m15:37:35.036905 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3a44517e-c6a9-43bf-9adf-e82f91c74997', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a72c210>]}
+[0m15:37:35.097544 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/manifest.json
+[0m15:37:35.099345 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/semantic_manifest.json
+[0m15:37:35.124332 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3a44517e-c6a9-43bf-9adf-e82f91c74997', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a3d1650>]}
+[0m15:37:35.124733 [info ] [MainThread]: Found 4 models, 3 data tests, 1 source, 474 macros
+[0m15:37:35.124954 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3a44517e-c6a9-43bf-9adf-e82f91c74997', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a1e7cd0>]}
+[0m15:37:35.126251 [info ] [MainThread]: 
+[0m15:37:35.126482 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m15:37:35.126670 [info ] [MainThread]: 
+[0m15:37:35.128162 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m15:37:35.132263 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_skin_lesions'
+[0m15:37:35.274424 [debug] [ThreadPool]: Using duckdb connection "list_skin_lesions"
+[0m15:37:35.274748 [debug] [ThreadPool]: On list_skin_lesions: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "connection_name": "list_skin_lesions"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"skin_lesions"'
+    
+  
+  
+[0m15:37:35.274954 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:37:35.295459 [debug] [ThreadPool]: SQL status: OK in 0.020 seconds
+[0m15:37:35.297224 [debug] [ThreadPool]: On list_skin_lesions: Close
+[0m15:37:35.297866 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_skin_lesions, now create_skin_lesions_main)
+[0m15:37:35.298328 [debug] [ThreadPool]: Creating schema "database: "skin_lesions"
+schema: "main"
+"
+[0m15:37:35.302883 [debug] [ThreadPool]: Using duckdb connection "create_skin_lesions_main"
+[0m15:37:35.303120 [debug] [ThreadPool]: On create_skin_lesions_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "connection_name": "create_skin_lesions_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='skin_lesions'
+        and type='sqlite'
+    
+  
+[0m15:37:35.303278 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m15:37:35.307393 [debug] [ThreadPool]: SQL status: OK in 0.004 seconds
+[0m15:37:35.308500 [debug] [ThreadPool]: Using duckdb connection "create_skin_lesions_main"
+[0m15:37:35.308691 [debug] [ThreadPool]: On create_skin_lesions_main: BEGIN
+[0m15:37:35.309019 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m15:37:35.309580 [debug] [ThreadPool]: Using duckdb connection "create_skin_lesions_main"
+[0m15:37:35.310032 [debug] [ThreadPool]: On create_skin_lesions_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "connection_name": "create_skin_lesions_main"} */
+
+    
+    
+        create schema if not exists "skin_lesions"."main"
+    
+[0m15:37:35.310722 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m15:37:35.311881 [debug] [ThreadPool]: On create_skin_lesions_main: COMMIT
+[0m15:37:35.312062 [debug] [ThreadPool]: Using duckdb connection "create_skin_lesions_main"
+[0m15:37:35.312270 [debug] [ThreadPool]: On create_skin_lesions_main: COMMIT
+[0m15:37:35.312570 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m15:37:35.312741 [debug] [ThreadPool]: On create_skin_lesions_main: Close
+[0m15:37:35.313487 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_skin_lesions_main, now list_skin_lesions_main)
+[0m15:37:35.317594 [debug] [ThreadPool]: Using duckdb connection "list_skin_lesions_main"
+[0m15:37:35.317870 [debug] [ThreadPool]: On list_skin_lesions_main: BEGIN
+[0m15:37:35.318352 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m15:37:35.318739 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m15:37:35.318919 [debug] [ThreadPool]: Using duckdb connection "list_skin_lesions_main"
+[0m15:37:35.319099 [debug] [ThreadPool]: On list_skin_lesions_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "connection_name": "list_skin_lesions_main"} */
+select
+      'skin_lesions' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'skin_lesions'
+  
+[0m15:37:35.329080 [debug] [ThreadPool]: SQL status: OK in 0.010 seconds
+[0m15:37:35.330460 [debug] [ThreadPool]: On list_skin_lesions_main: ROLLBACK
+[0m15:37:35.331496 [debug] [ThreadPool]: Failed to rollback 'list_skin_lesions_main'
+[0m15:37:35.331705 [debug] [ThreadPool]: On list_skin_lesions_main: Close
+[0m15:37:35.332441 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3a44517e-c6a9-43bf-9adf-e82f91c74997', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a630650>]}
+[0m15:37:35.332703 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:37:35.332857 [debug] [MainThread]: On master: BEGIN
+[0m15:37:35.333002 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m15:37:35.333375 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:37:35.333571 [debug] [MainThread]: On master: COMMIT
+[0m15:37:35.333736 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:37:35.333952 [debug] [MainThread]: On master: COMMIT
+[0m15:37:35.334224 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:37:35.334385 [debug] [MainThread]: On master: Close
+[0m15:37:35.335958 [debug] [Thread-1 (]: Began running node model.skin_lesion_analytics.stg_lesions
+[0m15:37:35.336241 [info ] [Thread-1 (]: 1 of 4 START sql view model main.stg_lesions ................................... [RUN]
+[0m15:37:35.336586 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_skin_lesions_main, now model.skin_lesion_analytics.stg_lesions)
+[0m15:37:35.336785 [debug] [Thread-1 (]: Began compiling node model.skin_lesion_analytics.stg_lesions
+[0m15:37:35.341015 [debug] [Thread-1 (]: Writing injected SQL for node "model.skin_lesion_analytics.stg_lesions"
+[0m15:37:35.341559 [debug] [Thread-1 (]: Began executing node model.skin_lesion_analytics.stg_lesions
+[0m15:37:35.370334 [debug] [Thread-1 (]: Writing runtime sql for node "model.skin_lesion_analytics.stg_lesions"
+[0m15:37:35.371022 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:37:35.371244 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: BEGIN
+[0m15:37:35.371425 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:37:35.371908 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.372174 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:37:35.372441 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.stg_lesions"} */
+
+  
+  create view "skin_lesions"."main"."stg_lesions__dbt_tmp" as (
+    with source as (
+    select * from "skin_lesions"."main"."raw_skin_lesions"
+),
+
+cleaned as (
+    select
+        lesion_id,
+        image_id,
+        dx              as diagnosis_code,
+        diagnosis_name,
+        dx_type         as diagnosis_method,
+        cast(age as integer) as patient_age,
+        age_group,
+        sex             as patient_sex,
+        localization    as body_location
+    from source
+)
+
+select * from cleaned
+  );
+
+[0m15:37:35.373118 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.378020 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:37:35.378405 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.stg_lesions"} */
+alter view "skin_lesions"."main"."stg_lesions" rename to "stg_lesions__dbt_backup"
+[0m15:37:35.379225 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:37:35.381216 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:37:35.381430 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.stg_lesions"} */
+alter view "skin_lesions"."main"."stg_lesions__dbt_tmp" rename to "stg_lesions"
+[0m15:37:35.381888 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.391900 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: COMMIT
+[0m15:37:35.392202 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:37:35.392395 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: COMMIT
+[0m15:37:35.394696 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m15:37:35.398869 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.stg_lesions"
+[0m15:37:35.399167 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.stg_lesions"} */
+
+      drop view if exists "skin_lesions"."main"."stg_lesions__dbt_backup" cascade
+    
+[0m15:37:35.399822 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.401325 [debug] [Thread-1 (]: On model.skin_lesion_analytics.stg_lesions: Close
+[0m15:37:35.405149 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3a44517e-c6a9-43bf-9adf-e82f91c74997', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ab8a890>]}
+[0m15:37:35.405552 [info ] [Thread-1 (]: 1 of 4 OK created sql view model main.stg_lesions .............................. [[32mOK[0m in 0.07s]
+[0m15:37:35.405837 [debug] [Thread-1 (]: Finished running node model.skin_lesion_analytics.stg_lesions
+[0m15:37:35.406253 [debug] [Thread-1 (]: Began running node model.skin_lesion_analytics.body_location_analysis
+[0m15:37:35.406596 [info ] [Thread-1 (]: 2 of 4 START sql view model main.body_location_analysis ........................ [RUN]
+[0m15:37:35.406883 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.skin_lesion_analytics.stg_lesions, now model.skin_lesion_analytics.body_location_analysis)
+[0m15:37:35.407109 [debug] [Thread-1 (]: Began compiling node model.skin_lesion_analytics.body_location_analysis
+[0m15:37:35.408810 [debug] [Thread-1 (]: Writing injected SQL for node "model.skin_lesion_analytics.body_location_analysis"
+[0m15:37:35.409259 [debug] [Thread-1 (]: Began executing node model.skin_lesion_analytics.body_location_analysis
+[0m15:37:35.413807 [debug] [Thread-1 (]: Writing runtime sql for node "model.skin_lesion_analytics.body_location_analysis"
+[0m15:37:35.414465 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:37:35.414662 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: BEGIN
+[0m15:37:35.414865 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:37:35.415273 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.415452 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:37:35.415664 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.body_location_analysis"} */
+
+  
+  create view "skin_lesions"."main"."body_location_analysis__dbt_tmp" as (
+    with lesions as (
+    select * from "skin_lesions"."main"."stg_lesions"
+)
+
+select
+    body_location,
+    diagnosis_code,
+    diagnosis_name,
+    count(*)                   as case_count,
+    round(avg(patient_age), 1) as avg_age
+from lesions
+group by body_location, diagnosis_code, diagnosis_name
+order by case_count desc
+  );
+
+[0m15:37:35.416353 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.418211 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:37:35.418470 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.body_location_analysis"} */
+alter view "skin_lesions"."main"."body_location_analysis" rename to "body_location_analysis__dbt_backup"
+[0m15:37:35.418883 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.421116 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:37:35.421375 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.body_location_analysis"} */
+alter view "skin_lesions"."main"."body_location_analysis__dbt_tmp" rename to "body_location_analysis"
+[0m15:37:35.421750 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.422610 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: COMMIT
+[0m15:37:35.422831 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:37:35.422997 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: COMMIT
+[0m15:37:35.423419 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.425275 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.body_location_analysis"
+[0m15:37:35.425546 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.body_location_analysis"} */
+
+      drop view if exists "skin_lesions"."main"."body_location_analysis__dbt_backup" cascade
+    
+[0m15:37:35.427754 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m15:37:35.430464 [debug] [Thread-1 (]: On model.skin_lesion_analytics.body_location_analysis: Close
+[0m15:37:35.430920 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3a44517e-c6a9-43bf-9adf-e82f91c74997', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ac21610>]}
+[0m15:37:35.431357 [info ] [Thread-1 (]: 2 of 4 OK created sql view model main.body_location_analysis ................... [[32mOK[0m in 0.02s]
+[0m15:37:35.431772 [debug] [Thread-1 (]: Finished running node model.skin_lesion_analytics.body_location_analysis
+[0m15:37:35.432203 [debug] [Thread-1 (]: Began running node model.skin_lesion_analytics.demographics_analysis
+[0m15:37:35.432515 [info ] [Thread-1 (]: 3 of 4 START sql view model main.demographics_analysis ......................... [RUN]
+[0m15:37:35.432854 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.skin_lesion_analytics.body_location_analysis, now model.skin_lesion_analytics.demographics_analysis)
+[0m15:37:35.433094 [debug] [Thread-1 (]: Began compiling node model.skin_lesion_analytics.demographics_analysis
+[0m15:37:35.436280 [debug] [Thread-1 (]: Writing injected SQL for node "model.skin_lesion_analytics.demographics_analysis"
+[0m15:37:35.436898 [debug] [Thread-1 (]: Began executing node model.skin_lesion_analytics.demographics_analysis
+[0m15:37:35.441345 [debug] [Thread-1 (]: Writing runtime sql for node "model.skin_lesion_analytics.demographics_analysis"
+[0m15:37:35.442230 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:37:35.442509 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: BEGIN
+[0m15:37:35.442740 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:37:35.443207 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.444288 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:37:35.445263 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.demographics_analysis"} */
+
+  
+  create view "skin_lesions"."main"."demographics_analysis__dbt_tmp" as (
+    with lesions as (
+    select * from "skin_lesions"."main"."stg_lesions"
+)
+
+select
+    age_group,
+    diagnosis_code,
+    diagnosis_name,
+    patient_sex,
+    count(*) as case_count
+from lesions
+group by age_group, diagnosis_code, diagnosis_name, patient_sex
+order by age_group, diagnosis_code
+  );
+
+[0m15:37:35.446746 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:37:35.449050 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:37:35.449288 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.demographics_analysis"} */
+alter view "skin_lesions"."main"."demographics_analysis" rename to "demographics_analysis__dbt_backup"
+[0m15:37:35.449681 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.452011 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:37:35.452210 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.demographics_analysis"} */
+alter view "skin_lesions"."main"."demographics_analysis__dbt_tmp" rename to "demographics_analysis"
+[0m15:37:35.452530 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.453304 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: COMMIT
+[0m15:37:35.453573 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:37:35.453756 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: COMMIT
+[0m15:37:35.454183 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.455467 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.demographics_analysis"
+[0m15:37:35.455666 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.demographics_analysis"} */
+
+      drop view if exists "skin_lesions"."main"."demographics_analysis__dbt_backup" cascade
+    
+[0m15:37:35.456014 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.456636 [debug] [Thread-1 (]: On model.skin_lesion_analytics.demographics_analysis: Close
+[0m15:37:35.456929 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3a44517e-c6a9-43bf-9adf-e82f91c74997', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ac35a50>]}
+[0m15:37:35.457254 [info ] [Thread-1 (]: 3 of 4 OK created sql view model main.demographics_analysis .................... [[32mOK[0m in 0.02s]
+[0m15:37:35.457564 [debug] [Thread-1 (]: Finished running node model.skin_lesion_analytics.demographics_analysis
+[0m15:37:35.457781 [debug] [Thread-1 (]: Began running node model.skin_lesion_analytics.diagnosis_summary
+[0m15:37:35.458084 [info ] [Thread-1 (]: 4 of 4 START sql view model main.diagnosis_summary ............................. [RUN]
+[0m15:37:35.458363 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.skin_lesion_analytics.demographics_analysis, now model.skin_lesion_analytics.diagnosis_summary)
+[0m15:37:35.458554 [debug] [Thread-1 (]: Began compiling node model.skin_lesion_analytics.diagnosis_summary
+[0m15:37:35.463704 [debug] [Thread-1 (]: Writing injected SQL for node "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:37:35.465071 [debug] [Thread-1 (]: Began executing node model.skin_lesion_analytics.diagnosis_summary
+[0m15:37:35.470489 [debug] [Thread-1 (]: Writing runtime sql for node "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:37:35.471092 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:37:35.471777 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: BEGIN
+[0m15:37:35.472060 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:37:35.472842 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:37:35.473355 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:37:35.473599 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.diagnosis_summary"} */
+
+  
+  create view "skin_lesions"."main"."diagnosis_summary__dbt_tmp" as (
+    with lesions as (
+    select * from "skin_lesions"."main"."stg_lesions"
+)
+
+select
+    diagnosis_code,
+    diagnosis_name,
+    count(*)                                                    as total_cases,
+    round(count(*) * 100.0 / sum(count(*)) over (), 2)         as pct_of_total,
+    round(avg(patient_age), 1)                                  as avg_age,
+    count(distinct lesion_id)                                   as unique_lesions
+from lesions
+group by diagnosis_code, diagnosis_name
+order by total_cases desc
+  );
+
+[0m15:37:35.475110 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:37:35.485164 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:37:35.485628 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.diagnosis_summary"} */
+alter view "skin_lesions"."main"."diagnosis_summary" rename to "diagnosis_summary__dbt_backup"
+[0m15:37:35.486249 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.488440 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:37:35.488679 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.diagnosis_summary"} */
+alter view "skin_lesions"."main"."diagnosis_summary__dbt_tmp" rename to "diagnosis_summary"
+[0m15:37:35.489118 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.490090 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: COMMIT
+[0m15:37:35.490360 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:37:35.490542 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: COMMIT
+[0m15:37:35.490929 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.492366 [debug] [Thread-1 (]: Using duckdb connection "model.skin_lesion_analytics.diagnosis_summary"
+[0m15:37:35.492568 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "model.skin_lesion_analytics.diagnosis_summary"} */
+
+      drop view if exists "skin_lesions"."main"."diagnosis_summary__dbt_backup" cascade
+    
+[0m15:37:35.492972 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:35.495764 [debug] [Thread-1 (]: On model.skin_lesion_analytics.diagnosis_summary: Close
+[0m15:37:35.496217 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3a44517e-c6a9-43bf-9adf-e82f91c74997', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10acaad10>]}
+[0m15:37:35.497180 [info ] [Thread-1 (]: 4 of 4 OK created sql view model main.diagnosis_summary ........................ [[32mOK[0m in 0.04s]
+[0m15:37:35.497745 [debug] [Thread-1 (]: Finished running node model.skin_lesion_analytics.diagnosis_summary
+[0m15:37:35.498712 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:37:35.498887 [debug] [MainThread]: On master: BEGIN
+[0m15:37:35.499062 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m15:37:35.501093 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m15:37:35.501598 [debug] [MainThread]: On master: COMMIT
+[0m15:37:35.501783 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:37:35.501937 [debug] [MainThread]: On master: COMMIT
+[0m15:37:35.502351 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:37:35.502507 [debug] [MainThread]: On master: Close
+[0m15:37:35.502708 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m15:37:35.502849 [debug] [MainThread]: Connection 'model.skin_lesion_analytics.diagnosis_summary' was properly closed.
+[0m15:37:35.503048 [info ] [MainThread]: 
+[0m15:37:35.503245 [info ] [MainThread]: Finished running 4 view models in 0 hours 0 minutes and 0.38 seconds (0.38s).
+[0m15:37:35.503786 [debug] [MainThread]: Command end result
+[0m15:37:35.517706 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/manifest.json
+[0m15:37:35.518721 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/semantic_manifest.json
+[0m15:37:35.523042 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/run_results.json
+[0m15:37:35.523276 [info ] [MainThread]: 
+[0m15:37:35.523583 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m15:37:35.523992 [info ] [MainThread]: 
+[0m15:37:35.524233 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m15:37:35.532970 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.6795357, "process_in_blocks": "0", "process_kernel_time": 0.569688, "process_mem_max_rss": "141737984", "process_out_blocks": "0", "process_user_time": 1.810946}
+[0m15:37:35.533527 [debug] [MainThread]: Command `dbt run` succeeded at 15:37:35.533432 after 1.68 seconds
+[0m15:37:35.533838 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a183110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a175310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1094aec50>]}
+[0m15:37:35.534156 [debug] [MainThread]: Flushing usage events
+[0m15:37:36.183646 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:37:38.108124 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be83010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be8c2d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bebcd50>]}
+
+
+============================== 15:37:38.110967 | 8910413d-f2b0-4072-bda1-803b5e4dfdc0 ==============================
+[0m15:37:38.110967 [info ] [MainThread]: Running with dbt=1.11.7
+[0m15:37:38.111516 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'log_format': 'default', 'fail_fast': 'False', 'empty': 'None', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'log_path': '/Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/logs', 'warn_error': 'None', 'log_cache_events': 'False', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'cache_selected_only': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'write_json': 'True', 'partial_parse': 'True', 'profiles_dir': '.', 'debug': 'False', 'version_check': 'True', 'quiet': 'False', 'indirect_selection': 'eager', 'invocation_command': 'dbt test --profiles-dir .'}
+[0m15:37:38.261783 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8910413d-f2b0-4072-bda1-803b5e4dfdc0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bdf6d50>]}
+[0m15:37:38.306548 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8910413d-f2b0-4072-bda1-803b5e4dfdc0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1091fb9d0>]}
+[0m15:37:38.307692 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m15:37:38.375936 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m15:37:38.450595 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m15:37:38.450904 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m15:37:38.451151 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m15:37:38.478955 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8910413d-f2b0-4072-bda1-803b5e4dfdc0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bedff90>]}
+[0m15:37:38.531013 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/manifest.json
+[0m15:37:38.533679 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/semantic_manifest.json
+[0m15:37:38.553848 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '8910413d-f2b0-4072-bda1-803b5e4dfdc0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c66fe90>]}
+[0m15:37:38.554188 [info ] [MainThread]: Found 4 models, 3 data tests, 1 source, 474 macros
+[0m15:37:38.554401 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8910413d-f2b0-4072-bda1-803b5e4dfdc0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c42e010>]}
+[0m15:37:38.555367 [info ] [MainThread]: 
+[0m15:37:38.555569 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m15:37:38.555733 [info ] [MainThread]: 
+[0m15:37:38.556023 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m15:37:38.558972 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_skin_lesions_main'
+[0m15:37:38.641172 [debug] [ThreadPool]: Using duckdb connection "list_skin_lesions_main"
+[0m15:37:38.641447 [debug] [ThreadPool]: On list_skin_lesions_main: BEGIN
+[0m15:37:38.641604 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:37:38.649115 [debug] [ThreadPool]: SQL status: OK in 0.007 seconds
+[0m15:37:38.649389 [debug] [ThreadPool]: Using duckdb connection "list_skin_lesions_main"
+[0m15:37:38.649586 [debug] [ThreadPool]: On list_skin_lesions_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "connection_name": "list_skin_lesions_main"} */
+select
+      'skin_lesions' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'skin_lesions'
+  
+[0m15:37:38.655512 [debug] [ThreadPool]: SQL status: OK in 0.006 seconds
+[0m15:37:38.656361 [debug] [ThreadPool]: On list_skin_lesions_main: ROLLBACK
+[0m15:37:38.656793 [debug] [ThreadPool]: Failed to rollback 'list_skin_lesions_main'
+[0m15:37:38.656948 [debug] [ThreadPool]: On list_skin_lesions_main: Close
+[0m15:37:38.657741 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8910413d-f2b0-4072-bda1-803b5e4dfdc0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c42d4d0>]}
+[0m15:37:38.658015 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:37:38.658172 [debug] [MainThread]: On master: BEGIN
+[0m15:37:38.658331 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m15:37:38.658595 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:37:38.658748 [debug] [MainThread]: On master: COMMIT
+[0m15:37:38.658900 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:37:38.659043 [debug] [MainThread]: On master: COMMIT
+[0m15:37:38.659285 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:37:38.659510 [debug] [MainThread]: On master: Close
+[0m15:37:38.662310 [debug] [Thread-1 (]: Began running node test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27
+[0m15:37:38.662719 [info ] [Thread-1 (]: 1 of 3 START test not_null_stg_lesions_diagnosis_code .......................... [RUN]
+[0m15:37:38.663012 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_skin_lesions_main, now test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27)
+[0m15:37:38.663274 [debug] [Thread-1 (]: Began compiling node test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27
+[0m15:37:38.673313 [debug] [Thread-1 (]: Writing injected SQL for node "test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27"
+[0m15:37:38.674125 [debug] [Thread-1 (]: Began executing node test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27
+[0m15:37:38.686806 [debug] [Thread-1 (]: Writing runtime sql for node "test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27"
+[0m15:37:38.687605 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27"
+[0m15:37:38.687848 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27: BEGIN
+[0m15:37:38.688030 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:37:38.688408 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:38.688590 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27"
+[0m15:37:38.688771 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select diagnosis_code
+from "skin_lesions"."main"."stg_lesions"
+where diagnosis_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m15:37:38.690104 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:37:38.693264 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27: ROLLBACK
+[0m15:37:38.693625 [debug] [Thread-1 (]: Failed to rollback 'test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27'
+[0m15:37:38.693830 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27: Close
+[0m15:37:38.694238 [info ] [Thread-1 (]: 1 of 3 PASS not_null_stg_lesions_diagnosis_code ................................ [[32mPASS[0m in 0.03s]
+[0m15:37:38.694617 [debug] [Thread-1 (]: Finished running node test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27
+[0m15:37:38.694886 [debug] [Thread-1 (]: Began running node test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1
+[0m15:37:38.695228 [info ] [Thread-1 (]: 2 of 3 START test not_null_stg_lesions_image_id ................................ [RUN]
+[0m15:37:38.695529 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.skin_lesion_analytics.not_null_stg_lesions_diagnosis_code.e83b8a2b27, now test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1)
+[0m15:37:38.695740 [debug] [Thread-1 (]: Began compiling node test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1
+[0m15:37:38.698213 [debug] [Thread-1 (]: Writing injected SQL for node "test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1"
+[0m15:37:38.698911 [debug] [Thread-1 (]: Began executing node test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1
+[0m15:37:38.700757 [debug] [Thread-1 (]: Writing runtime sql for node "test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1"
+[0m15:37:38.701319 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1"
+[0m15:37:38.701524 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1: BEGIN
+[0m15:37:38.701699 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:37:38.702162 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:38.702394 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1"
+[0m15:37:38.702619 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select image_id
+from "skin_lesions"."main"."stg_lesions"
+where image_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m15:37:38.703353 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m15:37:38.704205 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1: ROLLBACK
+[0m15:37:38.704502 [debug] [Thread-1 (]: Failed to rollback 'test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1'
+[0m15:37:38.704681 [debug] [Thread-1 (]: On test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1: Close
+[0m15:37:38.705010 [info ] [Thread-1 (]: 2 of 3 PASS not_null_stg_lesions_image_id ...................................... [[32mPASS[0m in 0.01s]
+[0m15:37:38.705291 [debug] [Thread-1 (]: Finished running node test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1
+[0m15:37:38.705491 [debug] [Thread-1 (]: Began running node test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009
+[0m15:37:38.705700 [info ] [Thread-1 (]: 3 of 3 START test unique_stg_lesions_image_id .................................. [RUN]
+[0m15:37:38.705915 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.skin_lesion_analytics.not_null_stg_lesions_image_id.73bddac5a1, now test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009)
+[0m15:37:38.706091 [debug] [Thread-1 (]: Began compiling node test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009
+[0m15:37:38.709705 [debug] [Thread-1 (]: Writing injected SQL for node "test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009"
+[0m15:37:38.710149 [debug] [Thread-1 (]: Began executing node test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009
+[0m15:37:38.713088 [debug] [Thread-1 (]: Writing runtime sql for node "test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009"
+[0m15:37:38.713532 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009"
+[0m15:37:38.713719 [debug] [Thread-1 (]: On test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009: BEGIN
+[0m15:37:38.713888 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:37:38.714262 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m15:37:38.714429 [debug] [Thread-1 (]: Using duckdb connection "test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009"
+[0m15:37:38.714605 [debug] [Thread-1 (]: On test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "skin_lesion_analytics", "target_name": "dev", "node_id": "test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    image_id as unique_field,
+    count(*) as n_records
+
+from "skin_lesions"."main"."stg_lesions"
+where image_id is not null
+group by image_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m15:37:38.718877 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m15:37:38.719882 [debug] [Thread-1 (]: On test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009: ROLLBACK
+[0m15:37:38.720161 [debug] [Thread-1 (]: Failed to rollback 'test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009'
+[0m15:37:38.720331 [debug] [Thread-1 (]: On test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009: Close
+[0m15:37:38.720644 [info ] [Thread-1 (]: 3 of 3 PASS unique_stg_lesions_image_id ........................................ [[32mPASS[0m in 0.01s]
+[0m15:37:38.720909 [debug] [Thread-1 (]: Finished running node test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009
+[0m15:37:38.721519 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:37:38.721699 [debug] [MainThread]: On master: BEGIN
+[0m15:37:38.721842 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m15:37:38.722142 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:37:38.722289 [debug] [MainThread]: On master: COMMIT
+[0m15:37:38.722433 [debug] [MainThread]: Using duckdb connection "master"
+[0m15:37:38.722570 [debug] [MainThread]: On master: COMMIT
+[0m15:37:38.722808 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m15:37:38.722949 [debug] [MainThread]: On master: Close
+[0m15:37:38.723165 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m15:37:38.723302 [debug] [MainThread]: Connection 'test.skin_lesion_analytics.unique_stg_lesions_image_id.bbc7778009' was properly closed.
+[0m15:37:38.723461 [info ] [MainThread]: 
+[0m15:37:38.723622 [info ] [MainThread]: Finished running 3 data tests in 0 hours 0 minutes and 0.17 seconds (0.17s).
+[0m15:37:38.724091 [debug] [MainThread]: Command end result
+[0m15:37:38.741181 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/manifest.json
+[0m15:37:38.742370 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/semantic_manifest.json
+[0m15:37:38.748348 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/ali/Documents/GitHub/data-engineering-zoomcamp/skin-lesion-analytics/dbt_skin_lesion/target/run_results.json
+[0m15:37:38.748603 [info ] [MainThread]: 
+[0m15:37:38.748984 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m15:37:38.749160 [info ] [MainThread]: 
+[0m15:37:38.749355 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m15:37:38.751710 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 0.69623524, "process_in_blocks": "0", "process_kernel_time": 0.293886, "process_mem_max_rss": "162529280", "process_out_blocks": "0", "process_user_time": 1.424739}
+[0m15:37:38.752059 [debug] [MainThread]: Command `dbt test` succeeded at 15:37:38.752008 after 0.70 seconds
+[0m15:37:38.752303 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102b8a310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102c26510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102c26d10>]}
+[0m15:37:38.752538 [debug] [MainThread]: Flushing usage events
+[0m15:37:39.214935 [debug] [MainThread]: An error was encountered while trying to flush usage events

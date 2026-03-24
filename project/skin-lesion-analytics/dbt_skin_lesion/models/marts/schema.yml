@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: diagnosis_summary
+    description: "Aggregated statistics per diagnosis type"
+  - name: demographics_analysis
+    description: "Case counts broken down by age group, diagnosis, and sex"
+  - name: body_location_analysis
+    description: "Case counts broken down by body location and diagnosis"
