@@ -79,7 +79,7 @@ make dashboard # Launch Streamlit dashboard
 │   ├── 06-batch/
 │   ├── 07-streaming/
 │   └── workshops/dlt/
-├── skin-lesion-analytics/       # Final project
+├── project/skin-lesion-analytics/       # Final project
 │   ├── pipeline/                #   Ingestion & warehouse loading
 │   ├── dbt_skin_lesion/         #   dbt models & tests
 │   ├── dashboard/               #   Streamlit app
