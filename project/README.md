@@ -1,122 +1,209 @@
-# Skin Lesion Analytics Dashboard
+# 🏥 Skin Lesion Analytics Dashboard
 
-An end-to-end data engineering pipeline that processes the **HAM10000** dermatoscopy dataset
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-FF4B4B?logo=streamlit&logoColor=white)
+![DuckDB](https://img.shields.io/badge/DuckDB-0.9+-FFD43B?logo=duckdb&logoColor=black)
+![dbt](https://img.shields.io/badge/dbt-1.7+-FF694B?logo=dbt&logoColor=white)
+![Parquet](https://img.shields.io/badge/Apache_Parquet-1.6+-00D9E6?logo=apache-parquet&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+
+An **end-to-end data engineering pipeline** that processes the **HAM10000** dermatoscopy dataset
 (10,015 skin lesion images across 7 diagnostic categories) and presents insights through an
-interactive Streamlit dashboard.
+interactive **Streamlit dashboard**.
 
-## Problem Statement
+---
 
-Skin cancer is the most common cancer worldwide. Early detection is critical for patient outcomes.
-This project builds a batch data pipeline to ingest, transform, and visualize metadata from the
-HAM10000 dataset — a large collection of multi-source dermatoscopic images of pigmented lesions.
+## 🎯 Problem Statement
 
-The dashboard answers questions like:
-- What is the distribution of diagnosis types across the dataset?
-- How do skin lesion diagnoses vary across patient age groups?
-- Which body locations are most affected by each type of lesion?
+> **Skin cancer is the most common cancer worldwide.** Early detection is critical for patient outcomes.
+> This project builds a batch data pipeline to ingest, transform, and visualize metadata from the
+> HAM10000 dataset — a large collection of multi-source dermatoscopic images of pigmented lesions.
 
-## Architecture
+### 🔍 Key Questions Answered
 
+| Question | Visualization |
+|----------|--------------|
+| What is the distribution of diagnosis types? | 📊 Bar Chart |
+| How do diagnoses vary across age groups? | 📈 Line Chart |
+| Which body locations are most affected? | 🥧 Pie Chart |
+| What are the key dataset metrics? | 📋 KPI Cards |
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart LR
+    A[Kaggle API] --> B[Raw CSV]
+    B --> C[Apache Parquet<br/>Data Lake]
+    C --> D[DuckDB<br/>Warehouse]
+    D --> E[dbt Transformations]
+    E --> F[Streamlit<br/>Dashboard]
 ```
-Kaggle API ──► Raw CSV ──► Parquet (Data Lake) ──► DuckDB (Warehouse) ──► dbt ──► Streamlit
-```
 
-| Component              | Technology               |
-|------------------------|---------------------------|
-| Data Source            | Kaggle API               |
-| Data Lake Format       | Apache Parquet           |
-| Data Warehouse         | DuckDB (clustered table) |
-| Transformations        | dbt-duckdb               |
-| Dashboard              | Streamlit + Plotly       |
-| Orchestration          | Python DAG runner + Make |
-| Language               | Python / SQL             |
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| 📥 **Data Source** | Kaggle API | Download HAM10000 dataset |
+| 🗄️ **Data Lake** | Apache Parquet | Columnar storage, compression |
+| 🏢 **Warehouse** | DuckDB | Embedded OLAP, clustered tables |
+| 🔄 **Transformations** | dbt-duckdb | SQL-based ELT, testing, docs |
+| 📊 **Dashboard** | Streamlit + Plotly | Interactive visualizations |
+| ⚙️ **Orchestration** | Python DAG + Make | Pipeline automation |
+| 💻 **Language** | Python / SQL | Core implementation |
 
-## Dataset
+---
 
-**HAM10000** ("Human Against Machine with 10000 training images")
-- Source: [Kaggle — Skin Cancer MNIST: HAM10000](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000)
-- 10,015 dermatoscopic images with metadata
-- 7 diagnostic categories: Melanocytic Nevi, Melanoma, Benign Keratosis, Basal Cell Carcinoma, Actinic Keratoses, Vascular Lesions, Dermatofibroma
-- Metadata fields: `lesion_id`, `image_id`, `dx`, `dx_type`, `age`, `sex`, `localization`
+## 📊 Dataset: HAM10000
 
-## Prerequisites
+**"Human Against Machine with 10000 training images"**
 
-- Python 3.10+
-- [Kaggle API credentials](https://www.kaggle.com/docs/api#authentication) (place `kaggle.json` in `~/.kaggle/`)
+- 🔗 **Source**: [Kaggle — Skin Cancer MNIST: HAM10000](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000)
+- 📸 **10,015** dermatoscopic images with metadata
+- 🏷️ **7 Diagnostic Categories**:
+  1. `mel` — Melanoma
+  2. `nv` — Melanocytic Nevi
+  3. `bkl` — Benign Keratosis
+  4. `bcc` — Basal Cell Carcinoma
+  5. `akiec` — Actinic Keratoses
+  6. `vasc` — Vascular Lesions
+  7. `df` — Dermatofibroma
+- 📋 **Metadata Fields**: `lesion_id`, `image_id`, `dx`, `dx_type`, `age`, `sex`, `localization`
 
-## Quick Start
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- ✅ Python **3.10+**
+- ✅ [Kaggle API credentials](https://www.kaggle.com/docs/api#authentication) — place `kaggle.json` in `~/.kaggle/`
+
+### One-Command Setup
 
 ```bash
-# 1. Install dependencies
-make setup
+# Clone and enter project
+cd skin-lesion-analytics
 
-# 2. Run the full DAG pipeline (ingest → warehouse → dbt_transform → dbt_test)
-make all
-
-# 3. Launch the dashboard
-make dashboard
+# Install deps + run full pipeline + launch dashboard
+make all && make dashboard
 ```
 
-## Step-by-Step
+### Step-by-Step
 
 ```bash
-# Install Python dependencies
+# 1️⃣ Install Python dependencies
 make setup
 
-# Download dataset from Kaggle and convert to parquet
+# 2️⃣ Download dataset from Kaggle → convert to Parquet
 make ingest
 
-# Load parquet into DuckDB warehouse
+# 3️⃣ Load Parquet into DuckDB warehouse (clustered table)
 make warehouse
 
-# Run dbt transformations
+# 4️⃣ Run dbt transformations (staging → marts)
 make transform
 
-# Launch Streamlit dashboard (opens browser)
+# 5️⃣ Launch Streamlit dashboard 🎉
 make dashboard
 ```
 
-## Project Structure
+---
+
+## 📁 Project Structure
 
 ```
 skin-lesion-analytics/
-├── Makefile                    # Pipeline orchestration
-├── README.md                   # This file
-├── SOLUTION.md                 # Detailed solution walkthrough
-├── requirements.txt            # Python dependencies
+├── Makefile                    # 🎛️ Pipeline orchestration
+├── README.md                   # 📖 This file
+├── SOLUTION.md                 # 📝 Detailed solution walkthrough
+├── requirements.txt            # 📦 Python dependencies
 ├── .gitignore
 ├── pipeline/
-│   ├── orchestrate.py          # DAG runner (ingest → warehouse → dbt → test)
-│   ├── ingest.py               # Download from Kaggle → parquet
-│   └── load_warehouse.py       # Load parquet → DuckDB (clustered)
+│   ├── orchestrate.py          # 🔄 DAG runner (ingest → warehouse → dbt → test)
+│   ├── ingest.py               # ⬇️ Download from Kaggle → Parquet
+│   └── load_warehouse.py       # 📥 Load Parquet → DuckDB (clustered)
 ├── dbt_skin_lesion/
-│   ├── dbt_project.yml
-│   ├── profiles.yml
+│   ├── dbt_project.yml         # ⚙️ dbt project config
+│   ├── profiles.yml            # 🔌 DuckDB connection profile
 │   └── models/
 │       ├── staging/
-│       │   ├── stg_lesions.sql
-│       │   └── schema.yml
+│       │   ├── stg_lesions.sql # 🧹 Clean & standardize raw data
+│       │   └── schema.yml      # 📋 Tests & documentation
 │       └── marts/
-│           ├── diagnosis_summary.sql
-│           ├── demographics_analysis.sql
-│           ├── body_location_analysis.sql
-│           └── schema.yml
+│           ├── diagnosis_summary.sql        # 📊 Diagnosis distribution
+│           ├── demographics_analysis.sql    # 👥 Age/sex breakdown
+│           ├── body_location_analysis.sql   # 📍 Localization stats
+│           └── schema.yml                   # 📋 Tests & documentation
 ├── dashboard/
-│   └── app.py                  # Streamlit dashboard
-├── data/                       # Raw & lake data (gitignored)
-└── warehouse/                  # DuckDB database (gitignored)
+│   └── app.py                  # 🎨 Streamlit dashboard
+├── data/                       # 🗂️ Raw & lake data (gitignored)
+└── warehouse/                  # 🦆 DuckDB database (gitignored)
 ```
 
-## Dashboard Preview
+---
 
-The dashboard includes:
-1. **Diagnosis Distribution** — bar chart of lesion types (categorical)
-2. **Cases by Age Group** — line chart across age bands (temporal/numerical)
-3. **Body Location Breakdown** — pie chart of affected areas
-4. **Key Metrics** — total images, unique lesions, diagnosis types
+## 📸 Dashboard Preview
 
-## Cleaning Up
+| View | Description |
+|------|-------------|
+| **📊 Diagnosis Distribution** | Bar chart of lesion types across 7 categories |
+| **📈 Cases by Age Group** | Line chart showing diagnosis trends across age bands |
+| **🥧 Body Location Breakdown** | Pie chart of affected anatomical sites |
+| **📋 Key Metrics** | Total images, unique lesions, diagnosis types, avg age |
+
+> Run `make dashboard` to open the interactive dashboard in your browser at `http://localhost:8501`
+
+---
+
+## 🧪 Testing & Quality
 
 ```bash
+# Run dbt tests (schema, null checks, referential integrity)
+make test
+
+# Run all pipeline steps with validation
+make all
+```
+
+---
+
+## 🧹 Cleaning Up
+
+```bash
+# Remove generated data, warehouse, and cache
 make clean
 ```
+
+---
+
+## 📚 Documentation
+
+- 📖 **[SOLUTION.md](SOLUTION.md)** — Detailed architecture decisions, data models, and implementation walkthrough
+- 📦 **dbt Docs** — Run `dbt docs generate && dbt docs serve` from `dbt_skin_lesion/` for interactive lineage
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+---
+
+## 🙏 Acknowledgments
+
+- **HAM10000 Dataset**: Tschandl et al., *The HAM10000 dataset*, 2018
+- **Kaggle** for hosting the dataset
+- **Streamlit**, **DuckDB**, **dbt**, **Plotly** communities for amazing tools
+
+---
