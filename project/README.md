@@ -79,31 +79,6 @@ A **production-grade batch data engineering pipeline** that transforms raw derma
 
 ---
 
-## 📖 Project Overview
-
-### What This Project Is
-A **production-grade batch data engineering pipeline** that transforms raw dermatoscopy metadata into actionable clinical insights. Built with modern data stack tools (Parquet, DuckDB, dbt, Streamlit), it demonstrates end-to-end ELT best practices: ingestion, storage, transformation, testing, and visualization.
-
-### How It Works
-```
-1. INGEST     → Kaggle API downloads HAM10000 CSV → converts to partitioned Parquet (data lake)
-2. LOAD       → Parquet loaded into DuckDB as clustered table for fast OLAP queries
-3. TRANSFORM  → dbt models: staging (clean) → marts (aggregated analytics)
-4. TEST       → dbt tests validate schema, nulls, referential integrity, business rules
-5. VISUALIZE  → Streamlit reads mart tables → renders interactive Plotly charts
-```
-
-### Problem It Solves
-| Problem | Solution |
-|---------|----------|
-| **Manual CSV analysis** is slow & error-prone | Automated pipeline: raw → insights in one command (`make all`) |
-| **No centralized analytics** for skin lesion metadata | dbt marts provide governed, tested, documented datasets |
-| **Static reports** can't explore age/sex/location interactions | Interactive Streamlit dashboard with cross-filtering |
-| **Scalability limits** of pandas/Excel on 10K+ records | DuckDB columnar engine handles 10M+ rows locally |
-| **Reproducibility** across environments | Make + dbt + pinned dependencies = deterministic builds |
-
----
-
 ## 📊 Dataset: HAM10000
 
 **"Human Against Machine with 10000 training images"**
